@@ -7,8 +7,6 @@
 * Invoice System
 * User Management (Admin Only)
 
-You can copy & paste this directly into your `README.md`.
-
 ---
 
 # 🚀 Feature Flags Dashboard – Laravel 12 + Vue 3 + Tailwind + Sanctum + Pennant
