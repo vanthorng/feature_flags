@@ -1,59 +1,355 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Here is a **clean, professional, production-ready README.md** tailored specifically for your project:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+* Laravel 12
+* Vue 3
+* Vite
+* TailwindCSS v4
+* Sanctum SPA Authentication
+* Laravel Pennant (Dynamic Feature Flags)
+* Invoice System
+* User Management (Admin Only)
 
-## About Laravel
+You can copy & paste this directly into your `README.md`.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# 🚀 Feature Flags Dashboard – Laravel 12 + Vue 3 + Tailwind + Sanctum + Pennant
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+A full-stack application built with **Laravel 12** (API) + **Vue 3** (SPA) using:
 
-## Learning Laravel
+* 🔐 **Laravel Sanctum** authentication
+* 🎛 **Dynamic Feature Flags** via **Laravel Pennant**
+* 📄 **Invoice management** (admin creates, users view, print controlled by feature flags)
+* 👥 **User management** (admin creates users + toggles admin role)
+* 🎨 **Vue 3 + TailwindCSS v4** UI
+* ⚡ Built with **Vite**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+This project demonstrates how to build a real-world **dynamic feature flag system** (like LaunchDarkly, Flagsmith, etc.) while integrating user access control, printing permissions, and admin tools.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 📦 Features
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🔐 Authentication
 
-### Premium Partners
+* Login / Logout using **Laravel Sanctum**
+* SPA-friendly cookie authentication
+* Session regeneration for security
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 🎛 Dynamic Feature Flags (Pennant)
 
-## Contributing
+* Admin can **create any feature** dynamically (e.g. `"print_invoice"`, `"new-dashboard"`)
+* Admin can **assign or remove features** for any user
+* User features are read dynamically from database (`features` table)
+* No static definitions needed in `FeatureServiceProvider`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 📄 Invoice System
 
-## Code of Conduct
+* Admin can create invoices for any user
+* Users can view **all invoices**
+* Only users with **`print_invoice`** feature can print invoices
+* Invoices include:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  * items
+  * subtotal
+  * taxes
+  * notes
+  * totals
 
-## Security Vulnerabilities
+### 👥 User Management (Admin Only)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Create users (name, email, password, admin flag)
+* List all users
+* Toggle admin role dynamically
+* Real-time table update
 
-## License
+### 🎨 Modern Frontend
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* **Vue 3** (Composition or Options API supported)
+* **TailwindCSS v4**
+* Responsive + clean UI
+* Dashboard layout with:
+
+  * Left panel (user info, features, invoices)
+  * Right admin panel (features, invoices, users)
+
+---
+
+## 🛠 Tech Stack
+
+| Technology      | Usage                 |
+| --------------- | --------------------- |
+| Laravel 12      | Backend API           |
+| Vue 3           | SPA Frontend          |
+| Sanctum         | Authentication        |
+| Laravel Pennant | Dynamic Feature Flags |
+| MySQL / MariaDB | Database              |
+| Vite            | Frontend bundler      |
+| TailwindCSS 4   | Styling               |
+| Axios           | HTTP Client           |
+
+---
+
+## 📁 Project Structure
+
+```
+/routes
+    api.php          # API routes (Fully SPA/JSON)
+    
+/app
+    Http/Controllers # FeatureController, UserAdminController, Invoice controllers
+    Http/Middleware  # is_admin middleware
+    Models           # User, Invoice, InvoiceItem
+    Providers        # FeatureServiceProvider
+
+/resources
+    js/
+      app.js         # Vue entry
+      axios.js       # API instance
+      components/    # Vue components: UserInvoices, FeatureManager, UserManager, etc.
+      App.vue        # Main layout
+    css/app.css      # Tailwind
+
+/database
+    migrations/      # users, invoices, features (Pennant)
+```
+
+---
+
+# ⚙️ Installation
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR-REPO/feature-flags-dashboard.git
+cd feature-flags-dashboard
+```
+
+---
+
+## 2. Install Backend Dependencies
+
+```bash
+composer install
+```
+
+---
+
+## 3. Copy Environment File
+
+```bash
+cp .env.example .env
+```
+
+Set database credentials in `.env`:
+
+```env
+DB_DATABASE=feature_flags
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Enable Sanctum SPA mode:
+
+```env
+SESSION_DOMAIN=localhost
+SANCTUM_STATEFUL_DOMAINS=localhost:5173
+```
+
+---
+
+## 4. Install Frontend Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 5. Run Migrations
+
+This includes:
+
+* users table
+* features (Pennant)
+* invoices
+* invoice items
+* is_admin field
+
+```bash
+php artisan migrate
+```
+
+---
+
+## 6. Start Development Servers
+
+### Laravel API
+
+```bash
+php artisan serve
+```
+
+Runs at:
+➡ [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+### Vue Frontend
+
+```bash
+npm run dev
+```
+
+Runs at:
+➡ [http://localhost:5173](http://localhost:5173)
+
+---
+
+# 👤 Default Admin User
+
+Create an admin manually:
+
+```bash
+php artisan tinker
+
+>>> \App\Models\User::create([
+       'name' => 'Admin',
+       'email' => 'admin@example.com',
+       'password' => bcrypt('123456789'),
+       'is_admin' => true,
+   ]);
+```
+
+Login using:
+
+```
+admin@example.com
+123456789
+```
+
+---
+
+# 🧪 API Overview
+
+### Auth
+
+```http
+POST /api/login
+POST /api/logout
+GET  /api/user
+```
+
+### Feature Flags (Admin)
+
+```http
+GET  /api/features
+POST /api/features/create
+POST /api/features/activate     { feature, user_id }
+POST /api/features/deactivate   { feature, user_id }
+```
+
+### Users (Admin)
+
+```http
+GET  /api/admin/users
+POST /api/admin/users
+POST /api/admin/users/{id}/toggle-admin
+```
+
+### Invoices (User)
+
+```http
+GET /api/invoices
+GET /api/invoices/{id}
+```
+
+### Invoices (Admin)
+
+```http
+GET /api/admin/invoices
+POST /api/admin/invoices
+```
+
+---
+
+# 🎯 Feature Logic (How It Works)
+
+## Dynamic features stored like:
+
+| id | name          | scope             | value |
+| -- | ------------- | ----------------- | ----- |
+| 1  | print_invoice | App\Models\User|2 | true  |
+| 2  | print_invoice | global            | false |
+
+## When user logs in:
+
+`/api/user` computes:
+
+```json
+{
+  "features": {
+    "print_invoice": true,
+    "new-dashboard": false
+  }
+}
+```
+
+Vue uses:
+
+```js
+hasFeature('print_invoice')
+```
+
+And passes it to:
+
+```vue
+<UserInvoices :can-print="hasFeature('print_invoice')" />
+```
+
+---
+
+# 🖨 Invoice Printing Logic
+
+* Everyone sees all invoices
+* **Only** users with `print_invoice` see the **Print** button
+* Admin grants this in **Feature Manager**
+
+---
+
+# 🧹 Useful Commands
+
+**Clear caches:**
+
+```bash
+php artisan optimize:clear
+```
+
+**Rebuild frontend:**
+
+```bash
+npm run build
+```
+
+---
+
+# 📄 License
+
+Open-source — feel free to use and customize.
+
+---
+
+# 🙌 Need Help?
+
+If you'd like, I can also generate:
+
+* Full SQL seeders
+* API documentation (Swagger-style)
+* ER Diagram (DB Schema)
+* Deployment guide (Docker or shared hosting)
+
+Just ask:
+👉 **“Generate deployment guide”** or
+👉 **“Generate database seeder”**
+
+---
+
+Let me know if you want to include screenshots in the README too!

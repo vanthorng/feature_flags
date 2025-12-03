@@ -70,7 +70,7 @@
             </button>
 
             <p class="text-center text-xs text-slate-400">
-              Default admin: <b>admin@example.com / password</b>
+              Default admin: <b>admin@example.com / 123456789</b>
             </p>
           </div>
         </div>
