@@ -1,5 +1,3 @@
-Here is a **clean, professional, production-ready README.md** tailored specifically for your project:
-
 * Laravel 12
 * Vue 3
 * Vite
@@ -349,7 +347,3 @@ If you'd like, I can also generate:
 Just ask:
 👉 **“Generate deployment guide”** or
 👉 **“Generate database seeder”**
-
----
-
-Let me know if you want to include screenshots in the README too!
