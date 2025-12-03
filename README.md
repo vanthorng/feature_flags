@@ -119,7 +119,7 @@ This project demonstrates how to build a real-world **dynamic feature flag syste
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-REPO/feature-flags-dashboard.git
+git clone https://github.com/vanthorng/feature_flags.git
 cd feature-flags-dashboard
 ```
 
